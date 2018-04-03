@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane id="AnchorPane" fx:id="ajoutpane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.bonplan.controller.AjoutPargerExperienceController">
+   <children>
+      <Label layoutX="243.0" layoutY="138.0" text="Nom" />
+      <Label layoutX="243.0" layoutY="197.0" text="Description" />
+      <Label layoutX="243.0" layoutY="252.0" text="image" />
+      <Label layoutX="243.0" layoutY="306.0" text="Addrese" />
+      <Label layoutX="243.0" layoutY="354.0" text="Region" />
+      <Label layoutX="243.0" layoutY="404.0" text="Option disponible" />
+      <Label layoutX="243.0" layoutY="467.0" text="Categorie" />
+      <Label layoutX="243.0" layoutY="515.0" text="Prix" />
+      <JFXTextField fx:id="nompx" layoutX="317.0" layoutY="134.0" />
+      <JFXTextField fx:id="descripex" layoutX="317.0" layoutY="193.0" />
+      <JFXTextField fx:id="adresseexp" layoutX="317.0" layoutY="302.0" />
+      <JFXComboBox fx:id="regionexp" layoutX="317.0" layoutY="350.0" />
+      <JFXComboBox fx:id="catexp" layoutX="310.0" layoutY="463.0" />
+      <JFXComboBox fx:id="prixexp" layoutX="317.0" layoutY="511.0" />
+      <JFXCheckBox fx:id="pcarte" layoutX="374.0" layoutY="438.0" text="Paiement par carte" />
+      <Label layoutX="243.0" layoutY="567.0" text="Evaluation" />
+      <Rating fx:id="raiting" layoutX="324.0" layoutY="560.0" />
+      <JFXCheckBox fx:id="wifi" layoutX="474.0" layoutY="404.0" text="Wi-Fi" />
+      <JFXCheckBox fx:id="clim" layoutX="374.0" layoutY="404.0" text="Climatisation" />
+      <JFXCheckBox fx:id="snckb" layoutX="624.0" layoutY="439.0" text="Snack-bar" />
+      <JFXCheckBox fx:id="park" layoutX="698.0" layoutY="404.0" text="Parking gratuit" />
+      <JFXCheckBox fx:id="picine" layoutX="813.0" layoutY="404.0" text="Piscine" />
+      <JFXCheckBox fx:id="balcon" layoutX="892.0" layoutY="404.0" text="Balcon" />
+      <JFXCheckBox fx:id="vguider" layoutX="503.0" layoutY="438.0" text="Visites guidées" />
+      <JFXCheckBox fx:id="fumer" layoutX="546.0" layoutY="404.0" text="Autorisation de fumer" />
+      <JFXCheckBox fx:id="resrv" layoutX="725.0" layoutY="441.0" text="Réservations" />
+      <JFXCheckBox fx:id="familial" layoutX="835.0" layoutY="442.0" text="Conviviale et familiale" />
+      <JFXButton fx:id="btnajouterexp" layoutX="572.0" layoutY="633.0" text="Ajouter" />
+      <JFXButton layoutX="468.0" layoutY="633.0" text="Annuler" />
+      <ImageView fx:id="expimage" fitHeight="236.0" fitWidth="302.0" layoutX="507.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../hai%20store/bonp/images.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="selectimg" layoutX="330.0" layoutY="257.0" onAction="#addimage" text="Choisir image" />
+   </children>
+</AnchorPane>
