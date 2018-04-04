@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableRow?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="PanePrincipale" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.bonplan.controller.Noter_MembreController">
+   <children>
+      <AnchorPane fx:id="PaneNoter" prefHeight="654.0" prefWidth="754.0">
+         <children>
+            <Label layoutX="313.0" layoutY="246.0" text="Nombre Bon Plan" textFill="#ff0202" />
+            <JFXTextField fx:id="NombreCommentaire" focusColor="#eb3843" layoutX="543.0" layoutY="214.0" prefHeight="26.0" prefWidth="135.0" promptText="Unité" text="Nombre Commentaire" unFocusColor="#eb3843" />
+            <Label layoutX="549.0" layoutY="248.0" text="Nombre Commentaire" textFill="RED" />
+            <Label layoutX="63.0" layoutY="78.0" text="Noter ce membre ">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="NombreExperience" focusColor="#eb3843" layoutX="63.0" layoutY="210.0" prefHeight="27.0" prefWidth="171.0" promptText="Comosants ..." text="Nombre Partage d'experience" unFocusColor="#eb3843" />
+            <JFXButton fx:id="Confirmer" layoutX="615.0" layoutY="577.0" onAction="#handleButtonConfirmer" style="-fx-background-color: #4059a9;" text="Confirmer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="NombreBonPlan" focusColor="#eb3843" layoutX="309.0" layoutY="211.0" promptText="Quantité du composant" text="Nombre Bon Plan" unFocusColor="#eb3843" />
+            <JFXButton fx:id="Retour" layoutX="504.0" layoutY="577.0" onAction="#handleButtonAnnuler" prefHeight="20.0" prefWidth="83.0" style="-fx-background-color: #4059a9;" text="Retour" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="47.0" layoutY="308.0" prefHeight="20.0" prefWidth="83.0" text="Username">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="344.0" prefHeight="20.0" prefWidth="53.0" text="Email">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="44.0" layoutY="425.0" prefHeight="26.0" prefWidth="105.0" text="Noter">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="Username" layoutX="170.0" layoutY="292.0" prefHeight="25.0" prefWidth="263.0" unFocusColor="#4059a9" />
+            <Label layoutX="44.0" layoutY="375.0" prefHeight="26.0" prefWidth="83.0" text="Point Merci">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="point" layoutX="167.0" layoutY="375.0" prefHeight="25.0" prefWidth="263.0" unFocusColor="#4059a9" />
+            <JFXTextField fx:id="Email" layoutX="170.0" layoutY="331.0" prefHeight="25.0" prefWidth="263.0" unFocusColor="#4059a9" />
+            <Label layoutX="63.0" layoutY="248.0" text="Nombre Partage d'experience" textFill="#ff0202" />
+            <JFXTextField fx:id="Noter" layoutX="166.0" layoutY="425.0" prefHeight="25.0" prefWidth="263.0" unFocusColor="#4059a9" />
+            <JFXDatePicker fx:id="DateFin" layoutX="480.0" layoutY="137.0" prefHeight="28.0" prefWidth="234.0" promptText="Choisir une Date création" />
+            <JFXDatePicker fx:id="DateDebut" layoutX="88.0" layoutY="137.0" prefHeight="28.0" prefWidth="234.0" promptText="Choisir une Date création" />
+            <JFXButton fx:id="choiBtsirDeuxDates" buttonType="RAISED" layoutX="349.0" layoutY="137.0" onAction="#choisirDeuxDate" prefHeight="26.0" prefWidth="83.0" ripplerFill="#4059a9" style="-fx-background-color: #4059a9;" text="Choisir" textFill="WHITE">
+               <font>
+                  <Font name="Bell MT Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXTreeTableRow layoutX="186.0" layoutY="553.0" />
+            <GridPane layoutX="24.0" layoutY="503.0" prefHeight="122.0" prefWidth="322.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="247.4000244140625" minWidth="10.0" prefWidth="137.79998779296875" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.5999755859375" minWidth="10.0" prefWidth="184.20001220703125" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <JFXTextField fx:id="NoteFinale" prefHeight="0.0" prefWidth="100.0" unFocusColor="#4059a9" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <JFXComboBox fx:id="ComboBoxType" onMouseClicked="#ChargerComboBoxListeDesType" prefHeight="26.0" prefWidth="178.0" unFocusColor="#4059a9" GridPane.columnIndex="1" />
+                  <JFXTextField fx:id="NombreType" onKeyReleased="#CalculerPointParRapportType" unFocusColor="#4059a9" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label prefHeight="26.0" prefWidth="105.0" text="Type">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="105.0" text="Point" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="105.0" text="Nombre " GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <Label fx:id="labelNombreType" layoutX="359.0" layoutY="577.0" text="labelNombreType" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="572.0" prefWidth="763.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.bonplan.controller.AjouterCadeauxController">
+   <children>
+      <GridPane layoutX="81.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="630.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.000048828125" minWidth="7.0" prefWidth="232.000048828125" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.1999877929688" minWidth="10.0" prefWidth="275.1999877929688" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="267.0" minWidth="10.0" prefWidth="121.60001220703123" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="37.600012207031256" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="37.600012207031256" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="91.0" minHeight="0.0" prefHeight="48.79998779296875" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="203.2" minHeight="20.0" prefHeight="203.2" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="29.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="Partenaire" />
+            <Label text="Date ajout cadeaux" GridPane.rowIndex="1" />
+            <Label text="Bon Plan" GridPane.rowIndex="5" />
+            <Label prefHeight="18.0" prefWidth="104.0" text="Detail Bon Plan" GridPane.rowIndex="6" />
+            <Label text="Valeur Point" GridPane.rowIndex="7" />
+            <TableView fx:id="tableViewBonPlan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="112.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <columns>
+                  <TableColumn fx:id="tableColumnLibelle" prefWidth="127.0" text="Libelle" />
+                  <TableColumn fx:id="tableColumnCategoris" prefWidth="95.19998168945312" text="Categeoris" />
+                  <TableColumn fx:id="tableColumnDescription" minWidth="8.800003051757812" prefWidth="176.8000030517578" text="Desc" />
+               </columns>
+            </TableView>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="386.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <children>
+                  <JFXComboBox fx:id="comboBoxSelectionnerBonPlan" onAction="#createtableviewBonPlan" prefHeight="26.0" prefWidth="211.0" />
+               </children>
+            </HBox>
+            <Label text="Prix reel" GridPane.rowIndex="2" />
+            <Label text="Type Bon Cadeaux" GridPane.rowIndex="3" />
+            <Label text="Quantite " GridPane.rowIndex="4" />
+            <JFXTextField fx:id="TXValeurPrixReel" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="87.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <JFXTextField fx:id="TXTypeBonCadeaux" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="233.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <JFXTextField fx:id="TXQuantite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="237.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <JFXTextField fx:id="TXValeurPointCadeaux" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <JFXComboBox fx:id="comboBoxSelectionnerPartenaire" onAction="#AfficherBonPlan" prefHeight="26.0" prefWidth="237.0" GridPane.columnIndex="1" />
+            <JFXDatePicker fx:id="datePickerAjoutCadeaux" prefHeight="28.0" prefWidth="273.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <JFXButton fx:id="buttonConfirmer" layoutX="473.0" layoutY="520.0" onAction="#handleButtonConfirmer" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: #4059a9;" text="Confirmer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="BtAnuller" layoutX="362.0" layoutY="520.0" onAction="#handleButtonAnnuler" prefHeight="20.0" prefWidth="83.0" style="-fx-background-color: #4059a9;" text="Annuler" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

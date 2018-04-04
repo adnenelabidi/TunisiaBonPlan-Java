@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="453.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.bonplan.controller.AjouterUilisateurController">
+   <children>
+      <JFXTextField fx:id="username" focusColor="#ababab" labelFloat="true" layoutX="22.0" layoutY="70.0" onKeyReleased="#verifusername" prefHeight="33.0" prefWidth="165.0" promptText="Nom d'utilisateur (*)" />
+      <JFXTextField fx:id="email" focusColor="#ababab" labelFloat="true" layoutX="22.0" layoutY="121.0" onKeyReleased="#verifEmail" prefHeight="33.0" prefWidth="165.0" promptText="Email (*)" />
+      <JFXTextField fx:id="ccnfirmation_email" focusColor="#ababab" labelFloat="true" layoutX="22.0" layoutY="218.0" onKeyReleased="#ConfirmEmail" prefHeight="33.0" prefWidth="165.0" promptText="Confirmation Email (*)" />
+      <JFXComboBox fx:id="genre" focusColor="#ababab" labelFloat="true" layoutX="242.0" layoutY="70.0" onMouseClicked="#typeuser" prefHeight="33.0" prefWidth="165.0" promptText="sexe(*)" />
+      <JFXPasswordField fx:id="password" focusColor="#ababab" labelFloat="true" layoutX="242.0" layoutY="121.0" onKeyReleased="#controlMdp" prefHeight="33.0" prefWidth="165.0" promptText="Mot de passe (*)" />
+      <JFXPasswordField fx:id="Confirmation_password" focusColor="#ababab" labelFloat="true" layoutX="242.0" layoutY="225.0" onKeyReleased="#ConfirmMDP" prefHeight="33.0" prefWidth="165.0" promptText="Confirmation mot de passe (*)" />
+      <Label fx:id="labelusername" layoutX="22.0" layoutY="104.0" prefHeight="25.0" prefWidth="165.0" textFill="RED" />
+      <Label fx:id="labelEmail" layoutX="22.0" layoutY="161.0" prefHeight="25.0" prefWidth="165.0" textFill="RED" />
+      <Label fx:id="labelconfEmail" layoutX="22.0" layoutY="252.0" prefHeight="25.0" prefWidth="165.0" textFill="RED" />
+      <Label fx:id="labelpassword" layoutX="242.0" layoutY="161.0" prefHeight="25.0" prefWidth="165.0" textFill="RED" />
+      <Label fx:id="labelConfirmationMdp" layoutX="242.0" layoutY="259.0" prefHeight="33.0" prefWidth="165.0" textFill="RED" />
+      <JFXComboBox fx:id="roles" focusColor="#ababab" labelFloat="true" layoutX="593.0" layoutY="60.0" onMouseClicked="#typeuser" prefHeight="33.0" prefWidth="165.0" promptText="roles(*)" />
+      <ImageView fx:id="view1" fitHeight="128.0" fitWidth="133.0" layoutX="7.0" layoutY="325.0" onMouseClicked="#ChargeImage" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ressources/img/img.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="inscrirLabel" layoutX="16.0" layoutY="12.0" prefHeight="54.0" prefWidth="179.0" text="Nouveaux Utilisateur" textAlignment="CENTER" textFill="LIGHTSKYBLUE">
+         <font>
+            <Font name="Bauhaus 93" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="addBtn" buttonType="RAISED" layoutX="547.0" layoutY="412.0" onAction="#handleButtonConfirmar" prefHeight="27.0" prefWidth="121.0" ripplerFill="#eb3843" style="-fx-background-color: #87CEFA;" text="Confirmer" textAlignment="CENTER" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Bauhaus 93" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="nom" focusColor="#ababab" labelFloat="true" layoutX="22.0" layoutY="282.0" prefHeight="33.0" prefWidth="165.0" promptText="Nom (*)" />
+      <JFXDatePicker fx:id="date_inscrit" layoutX="593.0" layoutY="280.0" prefHeight="33.0" prefWidth="165.0" promptText="date_inscrit" />
+      <JFXDatePicker fx:id="date_naissance" layoutX="593.0" layoutY="217.0" prefHeight="33.0" prefWidth="165.0" promptText="date_naissance" showWeekNumbers="true" />
+      <JFXButton fx:id="annulerBtn" buttonType="RAISED" layoutX="412.0" layoutY="412.0" onAction="#handleButtonCancelar" prefHeight="27.0" prefWidth="121.0" ripplerFill="#eb3843" style="-fx-background-color: #87CEFA;" text="Annuler" textAlignment="CENTER" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Bauhaus 93" size="12.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="38.0" fitWidth="66.0" layoutX="730.0" layoutY="8.0" onMouseClicked="#closeApplication" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ressources/img/close.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelcontainsDigit" layoutX="419.0" layoutY="117.0" prefHeight="25.0" prefWidth="165.0" text="cc" textFill="RED" />
+      <Label fx:id="labelcontainsLowerCaseLetter" layoutX="419.0" layoutY="141.0" prefHeight="25.0" prefWidth="165.0" text="cc" textFill="RED" />
+      <Label fx:id="labelpasswordcontainsUpperCaseLetter" layoutX="419.0" layoutY="161.0" prefHeight="25.0" prefWidth="165.0" text="cc" textFill="RED" />
+      <Label fx:id="labelpasswordcontainsSpecialCharacter" layoutX="419.0" layoutY="187.0" prefHeight="25.0" prefWidth="165.0" text="cc" textFill="RED" />
+      <Label fx:id="labelpasswordlength" layoutX="242.0" layoutY="187.0" prefHeight="25.0" prefWidth="165.0" text="cc" textFill="RED" />
+      <Label fx:id="labelPhone" layoutX="593.0" layoutY="161.0" prefHeight="25.0" prefWidth="165.0" textFill="RED" />
+      <JFXTextField fx:id="prenom" focusColor="#ababab" labelFloat="true" layoutX="242.0" layoutY="293.0" prefHeight="33.0" prefWidth="165.0" promptText="Prenom (*)" />
+      <JFXTextField fx:id="phone" focusColor="#ababab" labelFloat="true" layoutX="593.0" layoutY="126.0" onKeyReleased="#controphone" prefHeight="33.0" prefWidth="165.0" promptText="phone(*)" />
+   </children>
+</AnchorPane>
