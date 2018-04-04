@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="parent" prefHeight="600" prefWidth="1024.0" styleClass="parent" stylesheets="@../ressources/css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.bonplan.controller.UserInterfaceController">
+<AnchorPane fx:id="UserPane" prefHeight="600" prefWidth="1024.0" styleClass="parent" stylesheets="@../ressources/css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.bonplan.controller.UserInterfaceController">
     <children>
         <VBox fx:id="vbox" alignment="TOP_CENTER" prefHeight="600.0" prefWidth="300.0" style="-fx-background-size: 900 600;" styleClass="sidebar">
             <children>
@@ -71,7 +71,7 @@
                 <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
                     <children>
                         <FontAwesomeIcon glyphStyle="-fx-fill:#fff" iconName="USERS" size="1.3em" />
-                        <Label text="Partager Votre Experience" textFill="WHITE">
+                        <Label onMouseClicked="#AjouterParataeExperience" text="Partager Votre Experience" textFill="WHITE">
                             <font>
                                 <Font name="Calibri Light" size="15.0" />
                             </font>
@@ -90,7 +90,7 @@
                 <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
                     <children>
                         <FontAwesomeIcon glyphStyle="-fx-fill:#fff" iconName="COMMENTS_ALT" size="1.3em" />
-                        <Label text="Demander une recommandation" textFill="WHITE">
+                        <Label fx:id="btndemanderec" onMouseClicked="#DemandeRecomanadation" text="Demander une recommandation" textFill="WHITE">
                             <font>
                                 <Font name="Calibri Light" size="15.0" />
                             </font>

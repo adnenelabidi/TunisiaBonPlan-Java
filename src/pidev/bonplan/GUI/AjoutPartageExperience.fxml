@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
 
-<AnchorPane fx:id="addDemandePane" prefHeight="600" prefWidth="1024.0" styleClass="parent" stylesheets="@../ressources/css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.bonplan.controller.AjoutDemandeController">
+<AnchorPane fx:id="UserPane" prefHeight="600" prefWidth="1024.0" styleClass="parent" stylesheets="@../ressources/css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.bonplan.controller.AjoutPartageExperienceController">
     <children>
         <VBox fx:id="vbox" alignment="TOP_CENTER" prefHeight="600.0" prefWidth="300.0" style="-fx-background-size: 900 600;" styleClass="sidebar">
             <children>
@@ -30,10 +33,10 @@
                   <Insets />
                </opaqueInsets>
                 </Label>
-                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#BackHome" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
+                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#BackHomes" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
                     <children>
                         <FontAwesomeIcon glyphStyle="-fx-fill:#fff" iconName="ANGLE_LEFT" size="1.3em" />
-                        <Label text="Précédent" textFill="WHITE">
+                        <Label onMouseClicked="#BackHomes" text="Précédent" textFill="WHITE">
                             <font>
                                 <Font name="Calibri Light" size="15.0" />
                             </font>
@@ -78,12 +81,12 @@
         </VBox>
         <VBox layoutX="300.0" prefHeight="600.0" prefWidth="724.0">
             <children>
-                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="724.0" style="-fx-background-color: #fff;">
+                <Pane fx:id="partageexpbtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="724.0" style="-fx-background-color: #fff;">
                     <effect>
                         <DropShadow blurType="ONE_PASS_BOX" color="#e8e4e4" height="10.0" radius="4.5" width="10.0" />
                     </effect>
                     <children>
-                        <Label layoutX="14.0" layoutY="24.0" text="Ajouter Votre Demande" textFill="#7c8184">
+                        <Label layoutX="14.0" layoutY="24.0" text="Partager Votre Expérience" textFill="#7c8184">
                             <font>
                                 <Font size="18.0" />
                             </font>
@@ -98,21 +101,43 @@
                 </Pane>
                 <HBox alignment="CENTER">
                     <children>
-                        <VBox alignment="TOP_CENTER" layoutX="260.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="724.0" styleClass="card-03" HBox.hgrow="ALWAYS">
+                        <VBox alignment="TOP_CENTER" layoutX="260.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="724.0" styleClass="card-03" HBox.hgrow="ALWAYS">
                      <children>
-                        <AnchorPane fx:id="demandepanes" prefHeight="534.0" prefWidth="724.0">
+                        <AnchorPane fx:id="partageexppane" prefHeight="533.0" prefWidth="724.0">
                            <children>
-                              <JFXTextField fx:id="titledem" layoutX="124.0" layoutY="26.0" />
-                              <JFXTextArea fx:id="descripdem" layoutX="130.0" layoutY="148.0" />
-                              <JFXTextField fx:id="adressdem" layoutX="129.0" layoutY="368.0" />
-                              <JFXButton fx:id="btnajoutdemande" layoutX="116.0" layoutY="82.0" onAction="#addimage" prefHeight="25.0" prefWidth="125.0" text="Choisir image" />
-                              <Label layoutX="43.0" layoutY="30.0" text="Titre" />
-                              <Label layoutX="34.0" layoutY="152.0" text="Description" />
-                              <Label layoutX="39.0" layoutY="86.0" text="Image" />
-                              <Label layoutX="42.0" layoutY="372.0" text="Addrese" />
-                              <JFXButton layoutX="362.0" layoutY="454.0" prefHeight="25.0" prefWidth="125.0" text="Annuler" />
-                              <JFXButton fx:id="ajouterdemande" layoutX="196.0" layoutY="454.0" onAction="#ajouterdemandebtn" prefHeight="25.0" prefWidth="125.0" text="Ajouter" />
-                              <ImageView fx:id="imgdemande" fitHeight="122.0" fitWidth="182.0" layoutX="519.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label layoutX="15.0" layoutY="19.0" text="Nom" />
+                              <Label layoutX="14.0" layoutY="72.0" text="Description" />
+                              <Label layoutX="18.0" layoutY="164.0" text="image" />
+                              <Label layoutX="16.0" layoutY="118.0" text="Addrese" />
+                              <Label layoutX="16.0" layoutY="205.0" text="Region" />
+                              <Label layoutX="17.0" layoutY="243.0" text="Option disponible" />
+                              <Label layoutX="18.0" layoutY="431.0" text="Categorie" />
+                              <JFXTextField fx:id="nompx" layoutX="94.0" layoutY="114.0" />
+                              <JFXTextField fx:id="descripex" layoutX="94.0" layoutY="68.0" />
+                              <JFXTextField fx:id="adresseexp" layoutX="94.0" layoutY="15.0" />
+                              <JFXComboBox fx:id="regionexp" layoutX="99.0" layoutY="200.0" />
+                              <JFXComboBox fx:id="catexp" layoutX="101.0" layoutY="425.0" />
+                              <JFXCheckBox fx:id="pcarte" layoutX="568.0" layoutY="272.0" text="Paiement par carte" />
+                              <Label layoutX="17.0" layoutY="383.0" text="Evaluation" />
+                              <Rating fx:id="raiting" layoutX="99.0" layoutY="378.0" />
+                              <JFXCheckBox fx:id="wifi" layoutX="268.0" layoutY="343.0" text="Wi-Fi" />
+                              <JFXCheckBox fx:id="clim" layoutX="567.0" layoutY="309.0" text="Climatisation" />
+                              <JFXCheckBox fx:id="snckb" layoutX="92.0" layoutY="343.0" text="Snack-bar" />
+                              <JFXCheckBox fx:id="park" layoutX="425.0" layoutY="271.0" text="Parking gratuit" />
+                              <JFXCheckBox fx:id="picine" layoutX="421.0" layoutY="345.0" text="Piscine" />
+                              <JFXCheckBox fx:id="balcon" layoutX="424.0" layoutY="307.0" text="Balcon" />
+                              <JFXCheckBox fx:id="vguider" layoutX="91.0" layoutY="307.0" text="Visites guidées" />
+                              <JFXCheckBox fx:id="fumer" layoutX="267.0" layoutY="307.0" text="Autorisation de fumer" />
+                              <JFXCheckBox fx:id="resrv" layoutX="268.0" layoutY="272.0" text="Réservations" />
+                              <JFXCheckBox fx:id="familial" layoutX="94.0" layoutY="272.0" text="Conviviale et familiale" />
+                              <JFXButton fx:id="btnajouterexp" layoutX="348.0" layoutY="468.0" text="Ajouter" />
+                              <JFXButton layoutX="241.0" layoutY="468.0" text="Annuler" />
+                              <ImageView fx:id="expimage" fitHeight="236.0" fitWidth="302.0" layoutX="417.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../hai%20store/bonp/images.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXButton fx:id="selectimg" layoutX="93.0" layoutY="160.0" onAction="#addimage" text="Choisir image" />
                            </children>
                         </AnchorPane>
                      </children></VBox>
