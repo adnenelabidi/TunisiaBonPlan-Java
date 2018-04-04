@@ -13,8 +13,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import pidev.bonplan.entites.demande_experience;
  
-import javafxapplication1.forum.entities.demande_experience;
+ 
  
 import pidev.bonplan.utils.MyConnection;
 

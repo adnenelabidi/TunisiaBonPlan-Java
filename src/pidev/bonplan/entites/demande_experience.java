@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javafxapplication1.forum.entities;
+package pidev.bonplan.entites;
 
 import java.util.Date;
 import java.util.Objects;

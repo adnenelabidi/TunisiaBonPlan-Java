@@ -34,12 +34,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafxapplication1.forum.entities.demande_experience;
+ 
 import org.apache.commons.codec.binary.Hex;
 import pidev.bonplan.services.DemandeRecommandation;
 import eu.hansolo.enzo.notification.Notification.Notifier;
 import eu.hansolo.enzo.notification.NotificationBuilder;
 import eu.hansolo.enzo.notification.NotifierBuilder;
+import pidev.bonplan.entites.demande_experience;
 /**
  * FXML Controller class
  *

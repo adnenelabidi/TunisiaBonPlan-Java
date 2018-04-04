@@ -12,7 +12,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import javafxapplication1.forum.entities.offre_experience;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import pidev.bonplan.entites.offre_experience;
+ 
 import pidev.bonplan.utils.MyConnection;
 
 /**
@@ -172,4 +175,77 @@ public class PartageExperience {
         return myList;
 
     }
-}
+     
+     public List<String> ListRegion()
+     {
+             
+    List<String> list = new ArrayList<String>();
+    try {
+        String sqlStationName = " select nom from region ";
+         Statement st3 = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st3.executeQuery(sqlStationName);
+
+        while (rs.next()) {
+
+            list.add(rs.getString("nom"));
+
+        }
+
+        rs.close();
+        st3.close();
+         
+
+    } catch (SQLException ex) {
+        System.err.println("ERR" + ex);
+    }
+    return list;
+     }
+     public List<String> ListCategorie()
+     {
+             
+    List<String> list = new ArrayList<String>();
+    try {
+        String sqlStationName = " select libelle from categorie ";
+         Statement st3 = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st3.executeQuery(sqlStationName);
+
+        while (rs.next()) {
+
+            list.add(rs.getString("libelle"));
+
+        }
+
+        rs.close();
+        st3.close();
+         
+
+    } catch (SQLException ex) {
+        System.err.println("ERR" + ex);
+    }
+    return list;
+     }
+     
+     public int GetItemId(String nomtable,String comparethis,String comparable){
+       
+         int i=0;
+         try {
+        String sqlStationName = " select id from "+nomtable+" where "+comparethis+"='"+comparable+"'";
+         Statement st3 = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st3.executeQuery(sqlStationName);
+            while (rs.next()) {
+
+            i=rs.getInt("id");
+
+        }
+
+        rs.close();
+        st3.close();
+         
+
+    } catch (SQLException ex) {
+        System.err.println("ERR" + ex);
+    }
+         return i;
+     }
+     }
+
