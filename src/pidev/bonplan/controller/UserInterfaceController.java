@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import impl.org.controlsfx.skin.NotificationBar;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,6 +26,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.controlsfx.control.Notifications;
 import org.controlsfx.control.Rating;
  
 /**
@@ -65,6 +67,7 @@ public class UserInterfaceController implements Initializable {
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/pidev/bonplan/GUI/AjoutDemande.fxml"));
     Parent root=loader.load();
         btndemanderec.getScene().setRoot(root);
+    //    Notifications.create().darkStyle().title("xxx").text("fff").showConfirm();
       
   
         
@@ -73,7 +76,7 @@ public class UserInterfaceController implements Initializable {
  @FXML
     private void AjouterParataeExperience(MouseEvent event) throws IOException {
       
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("/pidev/bonplan/GUI/AjoutPartageExperience.fxml"));
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/pidev/bonplan/GUI/PartageExperience.fxml"));
     Parent root=loader.load();
         UserPane.getScene().setRoot(root);
       

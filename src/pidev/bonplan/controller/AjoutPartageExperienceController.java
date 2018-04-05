@@ -135,9 +135,10 @@ public class AjoutPartageExperienceController implements Initializable {
     @FXML
     public void BackHomes(MouseEvent event) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/bonplan/GUI/UserInterface.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/bonplan/GUI/PartageExperience.fxml"));
         Parent root = loader.load();
         vbox.getScene().setRoot(root);
+        
     }
 
     @FXML

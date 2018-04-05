@@ -27,7 +27,7 @@ public class PartageExperience {
     public void ajouterExperience(offre_experience p) {
 
         try { // LES var declaré dans le try ne sont vue que dans le try, et inversement pour en dhors du try
-            String requete = "INSERT INTO offre_experience(nom,description,url_image,addrese,datecreation,rating,climatisation,wifi,snackbar,parking,piscine,familiale,paiementparcarte,balcon,visites,fumer,reservations) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; //MAJUSCULE NON OBLIGATOIRE 
+            String requete = "INSERT INTO offre_experience(nom,description,url_image,addrese,datecreation,rating,climatisation,wifi,snackbar,parking,piscine,familiale,paiementparcarte,balcon,visites,fumer,reservations,region_id,catid) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; //MAJUSCULE NON OBLIGATOIRE 
             PreparedStatement st = MyConnection.getInstance().getCnx().prepareStatement(requete); // import java.sql.Statement
             st.setString(1, p.getNom());
             st.setString(2, p.getDescription());
@@ -46,6 +46,8 @@ public class PartageExperience {
             st.setBoolean(15, p.getVisites());
             st.setBoolean(16, p.getFumer());
             st.setBoolean(17, p.getReservations());
+            st.setInt(18, p.getRegion_id());
+            st.setInt(19, p.getCatid());
 
             st.executeUpdate();
             System.out.println("experience ajoutée");
@@ -112,9 +114,10 @@ public class PartageExperience {
                 p.setDescription(rs.getString(4));
                 p.setUrl_image(rs.getString(5));
                 p.setAddrese(rs.getString(6));
+                p.setRegion_id(8);
                 p.setDatecreation(rs.getDate(9));
                 p.setRating(rs.getInt(10));
-                p.setRating(rs.getInt(10));
+                p.setCatid(11);
                 p.setClimatisation(rs.getBoolean(14));
                 p.setWifi(rs.getBoolean(15));
                 p.setSnackbar(rs.getBoolean(16));
