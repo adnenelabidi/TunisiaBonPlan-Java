@@ -14,6 +14,8 @@ import java.util.Calendar;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import pidev.bonplan.entites.User;
+import pidev.bonplan.entites.notif_demande;
 import pidev.bonplan.entites.offre_experience;
  
 import pidev.bonplan.utils.MyConnection;
@@ -89,7 +91,7 @@ public class PartageExperience {
     public void SupprimerExperience(int id) {
 
         try { // LES var declaré dans le try ne sont vue que dans le try, et inversement pour en dhors du try
-            String requete = "DELETE * FROM offre_experience where id=?"; //MAJUSCULE NON OBLIGATOIRE 
+            String requete = "DELETE FROM offre_experience where id=?"; //MAJUSCULE NON OBLIGATOIRE 
             PreparedStatement st = MyConnection.getInstance().getCnx().prepareStatement(requete); // import java.sql.Statement
             st.setInt(1, id);
 
@@ -114,10 +116,10 @@ public class PartageExperience {
                 p.setDescription(rs.getString(4));
                 p.setUrl_image(rs.getString(5));
                 p.setAddrese(rs.getString(6));
-                p.setRegion_id(8);
+                p.setRegion_id(rs.getInt(8));
                 p.setDatecreation(rs.getDate(9));
                 p.setRating(rs.getInt(10));
-                p.setCatid(11);
+                p.setCatid(rs.getInt(11));
                 p.setClimatisation(rs.getBoolean(14));
                 p.setWifi(rs.getBoolean(15));
                 p.setSnackbar(rs.getBoolean(16));
@@ -249,6 +251,89 @@ public class PartageExperience {
         System.err.println("ERR" + ex);
     }
          return i;
+     }
+     public String GetRegion(int id)
+     {
+       String reg=null;
+         try {
+        String sqlStationName = " select nom from region where id="+id;
+         Statement st3 = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st3.executeQuery(sqlStationName);
+            while (rs.next()) {
+
+            reg=rs.getString("nom");
+
+        }
+
+        rs.close();
+        st3.close();
+         
+
+    } catch (SQLException ex) {
+        System.err.println("ERR" + ex);
+    }
+         return reg;
+     }
+     
+      public User GetUserById(int id)
+     {
+       User usr=new User();
+         try {
+        String sqlStationName = " select * from fosuser where id="+id;
+         Statement st3 = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st3.executeQuery(sqlStationName);
+            while (rs.next()) {
+
+            usr.setNom(rs.getString("nom"));
+            usr.setId(rs.getInt("id"));
+            usr.setPrenom(rs.getString("prenom"));
+            usr.setUsername(rs.getString("username"));
+            usr.setEmail(rs.getString("email"));
+            usr.setImage(rs.getString("image"));
+
+        }
+
+        rs.close();
+        st3.close();
+         
+
+    } catch (SQLException ex) {
+        System.err.println("ERR" + ex);
+    }
+         return usr;
+     }
+      
+      
+       public List<notif_demande> GetNotificationById(int id)
+     {
+         List<notif_demande> ld=new ArrayList<>();
+       notif_demande notifdem=new notif_demande();
+         try {
+        String sqlStationName = " select * from notif_demande where demandeur="+id;
+         Statement st3 = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st3.executeQuery(sqlStationName);
+            while (rs.next()) {
+
+            notifdem.setSubject(rs.getString("subject"));
+            notifdem.setDemandeur(rs.getInt("demandeur"));
+            notifdem.setUserid(rs.getInt("userid"));
+            notifdem.setDemandeid(rs.getInt("demandeid"));
+            notifdem.setMessage(rs.getString("message"));
+            notifdem.setLink(rs.getString("link"));
+            notifdem.setSeen(rs.getBoolean("seen"));
+            ld.add(notifdem);
+        
+
+        }
+
+        rs.close();
+        st3.close();
+         
+
+    } catch (SQLException ex) {
+        System.err.println("ERR" + ex);
+    }
+         return ld;
      }
      }
 

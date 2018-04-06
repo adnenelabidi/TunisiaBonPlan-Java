@@ -6,13 +6,17 @@
 package pidev.bonplan.entites;
 
 import java.sql.Date;
+import java.util.HashMap;
+import java.util.Map;
+import javafx.collections.ObservableList;
 
 /**
  *
  * @author Asus
  */
 public class User {
-
+ 
+   private static final Map<Integer, User> USERS = new HashMap<>();
     private int id;
     private String username;
     private String username_canonical;
@@ -36,6 +40,20 @@ public class User {
     public User() {
     }
 
+    public User(int id) {
+        this.id = id;
+    }
+    
+    
+      public static User of(int id) {
+        User user = USERS.get(id);
+        if (user == null) {
+            user = new User(id);
+            USERS.put(id, user);
+        }
+        return user;
+    }
+
     public User(int id, String username, String username_canonical, String email, String email_canonical, String password, int enabled, Date last_login, String roles, String nom, String prenom, String phone, String image, String date_naissance, String date_inscription, String genre) {
         this.id = id;
         this.username = username;
@@ -44,7 +62,7 @@ public class User {
         this.email_canonical = email_canonical;
         this.password = password;
         this.enabled = enabled;
-        this.last_login = last_login;
+         
         this.roles = roles;
         this.nom = nom;
         this.prenom = prenom;
@@ -54,6 +72,8 @@ public class User {
         this.date_inscription = date_inscription;
         this.genre = genre;
     }
+    
+    
 
     public User(int id, String username, String username_canonical, String email, String email_canonical, String password, String roles, String nom, String prenom, String phone, String image, String date_naissance, String date_inscription, String genre) {
         this.id = id;
@@ -71,6 +91,25 @@ public class User {
         this.date_inscription = date_inscription;
         this.genre = genre;
     }
+
+    public User(String username, String username_canonical, 
+            String nom, String prenom, String roles, String phone, String genre) {
+         
+        this.username = username;
+        this.username_canonical = username_canonical;
+    
+        this.roles = roles;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.phone = phone;
+     
+        this.genre = genre;
+    }
+
+     
+
+    
+ 
     
     
 

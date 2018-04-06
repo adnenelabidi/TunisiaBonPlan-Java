@@ -32,6 +32,13 @@ private Compte MembreConcerne;
         this.Cadeaux = Cadeaux;
         this.MembreConcerne = MembreConcerne;
     }
+    public Boncadeaux(int idBoncadeaux, String type_bonBoncadeaux, String descriptionBoncadeaux, String date_cadeaux) {
+        this.idBoncadeaux = idBoncadeaux;
+        this.type_bonBoncadeaux = type_bonBoncadeaux;
+        this.descriptionBoncadeaux = descriptionBoncadeaux;
+        this.date_cadeaux = date_cadeaux;
+    
+    }
 
     public int getIdBoncadeaux() {
         return idBoncadeaux;
@@ -68,6 +75,13 @@ private Compte MembreConcerne;
     public Cadeaux getCadeaux() {
         return Cadeaux;
     }
+    
+        public String getLibelleCadeaux() {
+        return Cadeaux.getLibelle();
+    }
+        public float getValeurCadeaux() {
+        return Cadeaux.getValeur_point();
+    }
 
     public void setCadeaux(Cadeaux Cadeaux) {
         this.Cadeaux = Cadeaux;
@@ -76,6 +90,12 @@ private Compte MembreConcerne;
     public Compte getMembreConcerne() {
         return MembreConcerne;
     }
+    
+    public int getIdMembreConcerne() {
+        return MembreConcerne.getId_user().getId();
+    }
+    
+    
 
     public void setMembreConcerne(Compte MembreConcerne) {
         this.MembreConcerne = MembreConcerne;
